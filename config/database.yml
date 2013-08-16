@@ -35,7 +35,7 @@ development:
   host: localhost
   encoding: unicode
   database: sample_app
-  username: user_name
+  username: lukecallahan
  
   pool: 5
 
