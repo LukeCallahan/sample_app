@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
 
   resources :users
+  resources :sessions, only: [:new, :destroy, :create]
+
   get "users/new"
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
@@ -8,6 +10,8 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/contact', to: 'users#new', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
  
 #  visit about_path
