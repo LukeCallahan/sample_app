@@ -1,0 +1,21 @@
+<% provide(:title, @user.name) %>
+<div class ="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+
+			</h1>
+		</section>
+	</aside>
+</div>
+
+
+
+
+ 
+<%= @user.email %>
+
+#The @ sign creates an instance variable.. I don't know exactly how it knows where #to get the user variable from...
+

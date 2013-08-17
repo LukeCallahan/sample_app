@@ -34,4 +34,9 @@ SampleApp::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  #Speed up tests using FactoryGirl in dev and keep it secure in production by lowering bcrypt's cost function
+  ActiveModel::SecurePassword.min_cost = true
+  
+
 end
