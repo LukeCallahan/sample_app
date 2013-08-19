@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+	has_many :microposts, dependent: :destroy 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
@@ -25,5 +27,10 @@ class User < ActiveRecord::Base
 		def create_remember_token
 			self.remember_token = User.encrypt(User.new_remember_token)
 		end
+
+	def feed
+		#This is preliminary. See "following users" for the full implementation.
+		Micropost.where("user_id = ?", id)
+	end
 
 end
